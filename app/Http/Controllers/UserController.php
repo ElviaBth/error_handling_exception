@@ -7,8 +7,14 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function show(User $user){
+    public function show(Request $request, $id){
 
-            return view('users.show', (compact('user')));
-    }
+
+        $user = User::where(['id'=> $id])->first();
+
+
+        return view('users.show', (compact('user')));
+}
+
+
 }
